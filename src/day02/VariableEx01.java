@@ -11,6 +11,14 @@ public class VariableEx01 {
               int result = value + 30;
         //4.  변수 result 의 값을 콘솔에 출력하세요
         System.out.println(result);
+        int  x = 0xB3;
+        int y = 0x2A0F;
+
+        System.out.println(x);
+
+        byte var1 = -128;
+        byte var2 = (byte) 128;
+        System.out.println(var2);
 
 
 
