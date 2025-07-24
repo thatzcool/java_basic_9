@@ -2,8 +2,8 @@ package day02;
 
 import java.util.Scanner;
 
-public class FourArithmetic {
-    public static void main(String[] args) {
+public class FourArithmetic {   // 자바에서는 클래스를 선언할때 클래스명은 파스칼방식 네이밍 , 변수나 메소드를 표기 카멜,스네이크 네이밍룰 적용
+       public static void main(String[] args) {
         int a, b;
         Scanner sc = new Scanner(System.in);
 

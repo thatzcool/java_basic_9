@@ -14,5 +14,10 @@ public class CharEx {
         System.out.println(c4);
         System.out.println(c5);
 
+        String v1 = "A";
+
+
+
+
     }
 }
