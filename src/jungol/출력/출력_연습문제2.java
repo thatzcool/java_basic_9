@@ -1,4 +1,4 @@
-package jungol;
+package jungol.출력;
 
 public class 출력_연습문제2 {
     public static void main(String[] args) {
