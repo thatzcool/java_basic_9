@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 public class Operator_9019_ex2 {
     public static void main(String[] args) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        int[] array = new int[5];
+        int[] array = new int[5];  //배열 array
 
         System.out.print("5개의 수를 입력하시오. ");
         for(int i = 0; i < 5; i++){
