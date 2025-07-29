@@ -1,6 +1,4 @@
-package day05;
-
-import java.util.Arrays;
+package day05.forEX;
 
 public class StartEx03 {
 
@@ -20,11 +18,6 @@ public class StartEx03 {
         System.out.println();
         System.out.println();
         System.out.println("======================");
-        for (int i = 1; i <= 5; i++) {
-            for (int j = 5; j > i; j--) {
-                System.out.print("*");
-            }
-            System.out.println();
-        }
+
     }
 }

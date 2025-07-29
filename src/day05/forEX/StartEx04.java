@@ -1,4 +1,4 @@
-package day05;
+package day05.forEX;
 
 public class StartEx04 {
 
