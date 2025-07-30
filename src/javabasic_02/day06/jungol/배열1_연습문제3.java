@@ -22,7 +22,7 @@ public class 배열1_연습문제3 {
             }
 
         }
-    
+
         System.out.print(outputArray[2] + " " + outputArray[4] + " " + outputArray[9]);
 
 
