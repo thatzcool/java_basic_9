@@ -14,7 +14,7 @@ public class 배열1_연습문제1 {
 //       n5 = in.nextInt();
 
         int[] array = new int[5];
-//  수동 입력방식
+//  수동 입력 데이터 할당
 //        array[0] = in.nextInt();
 //        array[1] = in.nextInt();
 //        array[2] = in.nextInt();
@@ -23,7 +23,7 @@ public class 배열1_연습문제1 {
 
         System.out.println("====itar 방식 입력====");
         for (int i = 0; i < array.length; i++) {
-           array[i] = in.nextInt();
+            array[i] = in.nextInt();
         }
         System.out.println("====iter 방식 출력====");
         for (int i : array) {
