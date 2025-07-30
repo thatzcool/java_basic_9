@@ -9,34 +9,16 @@ public class 배열1_연습문제9 {
     static Scanner in = new Scanner(System.in);
 
     public static void main(String[] args) {
-        // 4자리 이하의 10개의 정수 저장   = > 배열
-        Integer[] outputArray = new Integer[10];
 
-        for (int i = 0; i < outputArray.length; i++) {
-            outputArray[i] = in.nextInt();
+        int[] outputArray = {95, 75, 85, 100, 50};   //배열의 생성 및 초기화 한번에 처리
+
+        Arrays.sort(outputArray);   //오름차순 정렬 처리
+
+        for (int i : outputArray) {
+            System.out.print(i +" ");
         }
 
 
-        //입력받은 수를 검사해서 짝수인지 홀수 인지를 판단하여 따로 따로 저장관리하자
-        Arrays.sort(outputArray);
-
-        int maxIndex = 9;
-        int minIndex = 0;
-
-        int maxEven = outputArray[maxIndex];
-        int minOdd = outputArray[minIndex];
-//각 짝수 홀수 저장값중 가장 작은 값을 출력
-        while (abs(maxEven) % 2 != 0) {
-            maxIndex--;
-            maxEven = outputArray[maxIndex];
-        }
-
-        while (abs(maxEven) % 2 != 1) {
-            minIndex++;
-            minOdd = outputArray[minIndex];
-        }
-
-        System.out.printf("%d %d ", minOdd, maxEven);
 
     }
 }
