@@ -29,18 +29,19 @@ public class MovieTest {
         movieList[2] = movie3;
 
         System.out.println("----------각 배열의 인덱스를 참조 출력----------");
-        System.out.println("01 영화제목" + movieList[0]);
-        System.out.println("01 영화제목" + movieList[1]);
-        System.out.println("01 영화제목" + movieList[2]);
+        System.out.println("01 영화제목 " + movieList[0]);
+        System.out.println("02 영화제목 " + movieList[1]);
+        System.out.println("03 영화제목 " + movieList[2]);
 
         System.out.println("----------iter 참조 출력---------------------");
         for (Movie movie : movieList) {
-            System.out.println(movie.movieTitle);
+            int i = 1;
+            System.out.println(i++ +"번째 "  + movie.movieTitle);
         }
         System.out.println("----------itar 참조 출력---------------------");
         for (int i = 0; i < movieList.length; i++) {
             Movie movie = movieList[i];
-            System.out.println(movie.movieTitle);
+            System.out.println(i + "번째 " + movie.movieTitle);
 
         }
     }
