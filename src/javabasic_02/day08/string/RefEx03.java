@@ -1,4 +1,4 @@
-package javabasic_02.day08;
+package javabasic_02.day08.string;
 
 
 public class RefEx03 {
@@ -13,6 +13,7 @@ public class RefEx03 {
         //new 연산자 저장 방식 : Heap(힙) 영역에 저장된다.
         String str3 = new String("Java");
         String str4 = new String("Java");
+
         System.out.println("--- str3 == str4 -----");
         System.out.println(str3 == str4);         // 주소값 비교  false
 

@@ -1,4 +1,4 @@
-package javabasic_02.day08;
+package javabasic_02.day08.string;
 
 public class RefEx01 {
 

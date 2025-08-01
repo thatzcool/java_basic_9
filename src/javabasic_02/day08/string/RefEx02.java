@@ -1,4 +1,4 @@
-package javabasic_02.day08;
+package javabasic_02.day08.string;
 
 /*
 똑같은 변수 a의 주소값을 출력하였다.
