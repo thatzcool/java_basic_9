@@ -21,4 +21,12 @@
     1. 리터럴 방식
     2. new 연산자 방식
 
+  자바에서 문자열을 다루는 자료형 String, StringBuffer, StringBuilder 3가지 자료형을 지원한다.
+  위 3가지 자료형은 문자열을 다루지만, 사용목적에 따라 용도가 많이 달라진다.
+
+  - StringBuffer, StringBuilder ( 기본 String 클래스의 문자열을 연산할때 불편한 점을 보완하여 제공됨)
+
+
+
+
 
