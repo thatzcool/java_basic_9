@@ -6,6 +6,7 @@ public class Student {
     private Integer stu_age;
     private String address;
     private String stu_ssn;
+    String  gender;
 
     //생성자를 통하여 학생의 객체의 필드를 초기화
     Student() { }   //기본 생성자
@@ -21,6 +22,23 @@ public class Student {
         this.address = address;
     }
 
+
+    public Integer getStu_age() {
+        return this.stu_age;
+    }
+
+    public String getStu_name() {
+        return stu_name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getStu_ssn() {
+        return stu_ssn;
+    }
+
     //Object 클래스의 toString() 오버로딩
     @Override
     public String toString() {
@@ -31,4 +49,6 @@ public class Student {
                 ", stu_ssn='" + stu_ssn + '\'' +
                 '}';
     }
+
+
 }
