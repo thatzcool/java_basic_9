@@ -6,7 +6,7 @@ public class ComputerMain {
         //Computer 객체 생성
         Computer myCom = new Computer();
 
-        int result = 0;
+        String result = null;
 
         result = myCom.totalSum(1, 2, 3);
         System.out.println(result);
@@ -19,7 +19,7 @@ public class ComputerMain {
 
         result = myCom.totalSum(new int[] {1,2,3,4,5,6,7,8,9,10});
         System.out.println(result);
-
+        
     }
 
 }
