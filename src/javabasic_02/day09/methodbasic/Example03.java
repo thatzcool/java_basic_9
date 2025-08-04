@@ -1,4 +1,4 @@
-package javabasic_02.day09.methods;
+package javabasic_02.day09.methodbasic;
 
 public class Example03 {
     public static void main(String[] args) {
