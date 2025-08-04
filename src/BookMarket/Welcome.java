@@ -1,3 +1,5 @@
+package BookMarket;
+
 import java.util.Scanner;
 
 public class Welcome {
@@ -16,8 +18,7 @@ public class Welcome {
 
 		System.out.print("연락처를 입력하세요 : ");
 		int userMobile = input.nextInt();
-		// System.out.println("Welcome to Shopping Mall"); ----[프로젝트 1-1]에서 작성한 내용
-		// System.out.println("Welcome to Book Market!"); ----[프로젝트 1-1]에서 작성한 내용
+
 
 		mUser = new User(userName, userMobile);
 
@@ -38,7 +39,6 @@ public class Welcome {
 			 * System.out.println(" 7. 영수증 표시하기 \t8. 종료");
 			 * System.out.println("***********************************************");
 			 */
-
 			menuIntroduction();
 
 			System.out.print("메뉴 번호를 선택해주세요 ");
