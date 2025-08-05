@@ -1,23 +1,23 @@
 package javabasic_02.day10.moringtest;
 
-public class SingleTone {
+public class ShopService {
         //싱글톤 클래스 객체를 담을 인스턴스 변수
-       private static SingleTone instance;
+       private static ShopService instance;
 
        //생성자를 private 선언 (외부 new 못하게)
-       private  SingleTone(){}
+       private ShopService(){}
 
-       public static SingleTone getInstance(){
+       public static ShopService getInstance(){
               if(instance == null){
-                     instance = new SingleTone();
+                     instance = new ShopService();
               }
               return  instance;
        }
 
        public static void main(String[] args) {
-              SingleTone s1 = SingleTone.getInstance();
-              SingleTone s2 = SingleTone.getInstance();
-              SingleTone s3 = SingleTone.getInstance();
+              ShopService s1 = ShopService.getInstance();
+              ShopService s2 = ShopService.getInstance();
+              ShopService s3 = ShopService.getInstance();
 
               System.out.println(s1.toString());
               System.out.println(s2.toString());
