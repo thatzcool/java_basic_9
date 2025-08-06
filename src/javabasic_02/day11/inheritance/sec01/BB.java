@@ -1,4 +1,4 @@
-package javabasic_02.day11.inheritance;
+package javabasic_02.day11.inheritance.sec01;
 
 public class BB extends AA {
     private int cc = 30;

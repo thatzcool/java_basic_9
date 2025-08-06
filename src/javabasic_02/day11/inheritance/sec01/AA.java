@@ -1,6 +1,4 @@
-package javabasic_02.day11.inheritance;
-
-import org.w3c.dom.ls.LSOutput;
+package javabasic_02.day11.inheritance.sec01;
 
 public class AA extends Object {
     private int aa = 10;
