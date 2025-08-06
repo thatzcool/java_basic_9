@@ -1,19 +1,16 @@
 package javabasic_02.day11.inheritance;
 
 public class BB extends AA {
-    public int cc = 30;
+    private int cc = 30;
 
     void adder() {
        // int result = aa + bb + cc;
-        int result = this.getAA() + bb + cc;
+        int result = this.getAA() + this.getBb() + cc;
 
         System.out.println(result);
     }
 
-    public static void main(String[] args) {
-        BB b = new BB();
-        System.out.println(b.getAA());
-        b.adder();
-        b.printAA();
+    public int getCc(){
+        return cc;
     }
 }
