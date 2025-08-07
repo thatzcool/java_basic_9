@@ -4,7 +4,7 @@ public class Person {
 	//필드 선언
 	public String name;
 
-	//생성자 선언
+	//생성자 선언 , 생성자 오버로딩
 	public Person(String name) {
 		this.name = name;
 	}

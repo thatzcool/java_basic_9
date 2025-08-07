@@ -75,5 +75,31 @@ Phone 객체가 생성되고, SmartPhone 객체가 생성된 것이다.
 
 
 
+7.10  객체 타입 확인    : 연산자 instanceof  (객체 타입 비교 연산자)
+      매개변수의 다형성에서 실제로 어떤 객체가 매개값으로 제공되었는지의 여부를 확인해야 한다.
+
+       boolean result = 객체 instanceof 타입;
+
+       public void method(Parent parent){
+           if(parent instanceof Child){
+              Child child = (Child) parent;
+           }
+        }
+
+        java12 부터
+          public void method(Parent parent){
+                    if(parent instanceof Child child){
+                         child.method3();
+                    }
+                 }
+
+
+
+
+
+
+
+
+
 
 
