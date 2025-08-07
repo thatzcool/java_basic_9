@@ -1,6 +1,4 @@
-package javabasic_02.day11.inheritance.sec08.shape;
-
-import javabasic_02.day11.qa.C;
+package javabasic_02.day11.inheritance.sec08.exam01.shape;
 
 public class M01 {
    // 사각형 ,삼각형, 원 클래스는 서로 다른 타입이어서 각각 타입을 정의해서 같은 타입끼리 묶어서 관리하겠다.
@@ -27,7 +25,7 @@ public class M01 {
         shapes[2] = rectangles[2];
         shapes[3] = circles[2];
 
-        Circle circle =(Circle) shapes[3];  //다운캐스팅 
+        Circle circle =(Circle) shapes[3];  //다운캐스팅
 
     }
 
