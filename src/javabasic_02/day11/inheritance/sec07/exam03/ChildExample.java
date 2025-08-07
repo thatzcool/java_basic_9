@@ -19,8 +19,5 @@ public class ChildExample {
 		  Child child =(Child) parent;
 		  child.field2 = "data22222";
 		  child.method3();
-
-
-
 	}
 }
