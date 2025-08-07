@@ -8,4 +8,13 @@ public class SupersonicAirplane extends Airplane {
 	public int flyMode = NORMAL;
 
 	//메소드 재정의
+
+	@Override
+	public void fly() {
+		if(flyMode == SUPERSONIC) {
+			System.out.println("SUPERSONIC 모드로 비행합니다.");
+		} else {
+			super.fly();
+		}
 	}
+}

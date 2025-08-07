@@ -5,11 +5,12 @@ public class SmartPhone extends Phone {
     public boolean wifi;
 
     //생성자 선언
-    public SmartPhone() { }
+    public SmartPhone() {
+        super();
+    }
 
     public SmartPhone(String model, String color) {
-        this.model = model;
-        this.color = color;
+        super(model, color);   // 부모생성자가 호출된다.
     }
 
     //메소드 선언

@@ -5,6 +5,11 @@ public class Phone {
 	public String model;
 	public String color;
 
+	Phone(){}
+	Phone(String model, String color){
+		this.model = model;
+		this.color = color;
+	}
 	//메소드 선언
 	public void bell() {
 		System.out.println("벨이 울립니다.");
