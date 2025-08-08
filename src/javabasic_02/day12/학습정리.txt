@@ -1,4 +1,4 @@
-1. 인터페이스 (interface)
+8.1 인터페이스 (interface)
    두 장치를 연결하는 접속 도구
    서로 다른 객체를 연결하는 역할을 하는 객체
 
@@ -7,3 +7,29 @@
     다중 상속을 구현할 수 있다.
 
     public class Cat extends Animal implements sound,eat,sleep
+
+8.2 인터페이스도 하나의 타입이므로 변수의 타입으로 사용할 수 있다.
+    인터페이스는 참조타입이다.
+    인터페이스 변수에는 객체의 참조값을 저장할 수 있다.
+    null 초기값
+
+    RemtoeControl rc = null;
+    rc = new Television();
+    rc.turnOff();
+    rc.turnOn();
+
+    ========================
+    rc = new Cleaner();
+    rc.turnOff();   //rc 고유기능
+    rc.turnOn();    //rc 고유기능
+    rc.cleaning();  //Cleaner의 기능
+    ========================
+이름 명명방식
+- 파스칼 방식  : 클래스    PersonInfo
+- 카멜 방식    : 메소드    setAge()
+- 스네이크 방식 : 상수     MAX_VALUE
+
+8.3 상수필드
+    public static final 특징을 가지고 있는 필드(상수) 선언가능
+
+
