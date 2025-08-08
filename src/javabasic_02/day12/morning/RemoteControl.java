@@ -1,4 +1,4 @@
-package javabasic_02.day12;
+package javabasic_02.day12.morning;
 
 public interface RemoteControl {
     //최대 볼륨은 30이다.

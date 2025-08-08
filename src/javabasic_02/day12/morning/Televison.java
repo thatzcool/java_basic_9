@@ -1,4 +1,4 @@
-package javabasic_02.day12;
+package javabasic_02.day12.morning;
 
 public class Televison implements RemoteControl{
     //필드  volume 추가

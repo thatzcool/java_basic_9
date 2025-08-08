@@ -1,4 +1,4 @@
-package javabasic_02.day12;
+package javabasic_02.day12.morning;
 
 public interface Service {
     //디폴트 메소드
