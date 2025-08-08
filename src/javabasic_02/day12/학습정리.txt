@@ -33,3 +33,5 @@
     public static final 특징을 가지고 있는 필드(상수) 선언가능
 
 
+8.4 default method
+    상수 필드를 읽거나, 추상 메소드를 호출하는 코드를 작성할때

@@ -12,5 +12,34 @@ public interface RemoteControl {
     public void trunOff();  // 전원 끄기
 
     public void setVolume(int volume);   //볼륨 조정 기능
+    public void setMute(boolean mute);
+
+    // 디폴트 인스턴스 메소드 
+//    default void setMute(boolean mute){
+//        if(mute){
+//            System.out.println("무음 처리 작동시작");
+//            setVolume(MIN_VOLUME);
+//        } else {
+//            System.out.println("무음 해제");
+//        }
+//    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
