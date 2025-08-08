@@ -22,7 +22,22 @@ public interface RemoteControl {
 //        } else {
 //            System.out.println("무음 해제");
 //        }
+          // cooldown();
 //    }
+
+     // 정적 메소드
+    static void chageBattery(){
+        System.out.println("리모콘 건전지를 교환합니다.");
+        //정적 필드 , private static method 가능
+
+        System.out.println(RemoteControl.MIN_VOLUME);
+        // setMute(true); 인스턴스 메소드 , 디폴트 메소드, privat 메소드 호출 불가
+    }
+
+     private void cooldown(){
+
+     }
+
 
 }
 

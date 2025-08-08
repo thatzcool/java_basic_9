@@ -10,7 +10,8 @@ public class User {
         rc.setVolume(11);
         rc.setMute(true);
         rc.setMute(false);
-
+        RemoteControl.chageBattery();   //정적 메소드 수행
+        rc.
 
         //리모컨을 통해서 청소기를 동작시키려 한다. rc를 이용하여
         //1. 청소기의 전원을 켜고
