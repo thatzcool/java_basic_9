@@ -11,6 +11,7 @@ public class CarFactory extends Factory implements IWorkingTogether {
 
     @Override
     int makeProducts(char skill) {
+
         switch (skill) {
             case 'A':
                 return 3 * super.getWorkingTime();

@@ -2,7 +2,7 @@ package java_advanced_01.day13.homework_solv.prob02;
 
 
 public class FactoryExample {
-	
+
 	public static void main(String[] args) {
 		// ===== 1st Car Factory Information
 		// Factory Name: CarABC
@@ -31,10 +31,20 @@ public class FactoryExample {
 	}
 
 	public void getResult(Factory mainFactory, char mainFactorySkill, IWorkingTogether partner) {
-		
+
 		System.out.println("* " + mainFactory.getFactoryName() + " 공장의 하루 생산량과 파트너 공장 협력 시 추가 생산량은 다음과 같다.");
+		System.out.println("1.하루 생산량 = " + mainFactory.makeProducts(mainFactorySkill));
+		if (mainFactory instanceof CarFactory) {
+			CarFactory parFactory = (CarFactory) mainFactory;
+			System.out.println("2. 파트너 공장[" + ((Factory) partner).getFactoryName() + "] 협력 시 추가 생산량 = " + parFactory.workTogether(partner));
+		} else if (mainFactory instanceof TVFactory) {
+			if (mainFactory instanceof CarFactory) {
+				TVFactory parFactory = (TVFactory) mainFactory;
+				System.out.println("2. 파트너 공장[" + ((Factory) partner).getFactoryName() + "] 협력 시 추가 생산량 = " + parFactory.workTogether(partner));
+			}
 
-		System.out.println("--------------------------------------------------------------");
+			System.out.println("--------------------------------------------------------------");
+		}
+
 	}
-
 }
