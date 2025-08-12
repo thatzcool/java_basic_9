@@ -8,13 +8,13 @@ public class AnimalTest {
         Animal chicken = new Chicken(3);
         Chicken cheatableChicken = new Chicken(5);
 
-        if(cheatableChicken instanceof Cheatable){
+        if(cheatableChicken instanceof Chicken){
             cheatableChicken.fly();
         }
 
-        if(chicken instanceof Cheatable){
-            cheatableChicken.fly();
-        }
+//        if(chicken instanceof Cheatable){
+//            cheatableChicken.fly();
+//        }
 
         for (int i = 0; i < 3; i++) {
             dog.run(1);

@@ -16,6 +16,6 @@ public class Chicken extends Animal implements Cheatable {
 
 	@Override
 	public void fly() {
-             super.speed*=2;         //super.speed = super.speed*2;
+             this.speed*=2;         //super.speed = super.speed*2;
 	}
 }
