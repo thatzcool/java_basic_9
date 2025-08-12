@@ -88,6 +88,9 @@ try 블럭으로 묶어놓고
 try - catch
 try - catch -finally
 
+//예외 처리 방법
+//1. try-catch 블럭
+//2. throws 던져서 처리
 
 
 
