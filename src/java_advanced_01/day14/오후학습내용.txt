@@ -14,3 +14,29 @@
 2) Set 계열   (저장 순서가 없고, 중복을 허용하지 않는다)
 
 Map계열 (키를 가지고 값을 관리한다.) 키(중복X)와 값이 한쌍으로 관리된다.
+
+
+자료구조
+Queue 큐   : 줄을 서는 행위와 유사 하다  FIFO(First In First Out), LILO(LastIn, Last Out)
+             가장 먼저 넣은 데이터를 가장 먼저 꺼낼 수 있다
+
+ 용어
+ 1. Enqueue : 큐에 데이터를 넣는 기능   -add(value) , offer(value)
+ 2. Dequeue : 큐에 데이터를 꺼내는 기능  - poll(), remove()
+java 에서는 기본적으로 java.util.Queue 클래스 제공하고 있다.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
