@@ -8,6 +8,7 @@ public class AnimalTest {
         Animal chicken = new Chicken(3);
         Chicken cheatableChicken = new Chicken(5);
 
+
         if(cheatableChicken instanceof Chicken){
             cheatableChicken.fly();
         }

@@ -1,0 +1,58 @@
+1. 리소스 (resource)
+   데이터를 제공하는 객체
+   DAO(Data Access Object) => 데이터 처리 객체
+   DTO(Data Transfer Obejct) => 데이터 전송 객체
+   VO (Value Object) => 데이터 객체
+
+   리소스를 사용하기 위해서는 반드시 열어야 한다. => open()
+   리소스 사용이 끝난 후에는 닫아야만 한다. => close()
+
+   예) 파일의 내용을 읽기 위해서는 파일 열어야 한다.
+       다 읽은 다음에 파일 닫아야 다른 프로그램에서 사용할 수 있다.
+       리소스를 사용하다가 예외가 발생할 수 있다.
+       안전하게 닫는것이 매우 중요하다. 리소스는 불안정 상태로 남아 있게되고
+       이는 자칫 데이터의 손상을 야기할 수 있다.
+
+      AutoCloseable 인터페이스 구현한 MyResource 리소스를 try-with-resources 블록으로 사용하여 관리함
+
+    2. 예외 떠넘기기
+       기본 처리 => 메소드 내부에서 예외가 발생할때 try-catch 블록으로 처리하는 것
+        throws 를 이용하여
+        메소드를 호출한 곳으로 예외를 떠넘길 수 있다.
+
+        void read1() throws 예외클래스1, 예외클래스2,....{}
+
+        public void method1(){
+          String className = "java.lang.String2";
+            try {
+             method2(className); }catch(ClassNotFoundException e){
+             e.printStackTrace();}
+
+        }
+
+        public void method2(String className) throws Exception {
+           Class.forName(className);
+        }
+
+
+
+3. 제너릭이란
+결정되지 않은 타입을 파라미터로 처리하고 실제 사용할때 파라미터를 구체적인 타입으로 대체시키는 기능
+객체를 저장할때 저장할 내용물의 타입을 미리 알려주고, 읽을때 어떤 타입으로 제공할지를 알게 표시법
+Box는 content에 무엇이 대입되고, 읽을때 어떤 타입으로 제공할지를 알게 정하는 것
+
+public class Box<T>{
+    public T content;
+ }
+
+ Box<String> box = new Box<String>();
+ box.content = "안녕";
+ String content = box.content;
+
+
+ Box<Integer> box = new Box<Integer>();
+  box.content = 100;
+  Integer content = box.content;
+
+ T 파라미터로 제공되는 것은 클래스타입, 인터페이스 만 가능하다   Box<int> (x)
+
