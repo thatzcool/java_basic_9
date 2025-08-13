@@ -67,3 +67,5 @@ public class Box<T>{
 <V> ==> value , 리턴 값, 매핑 값
 <N> => 숫자
 <S,U,V>   2번째, 3번째, 4번째 선언된 타입
+
+오후) 자바의 자료구조  (Collection)

@@ -1,4 +1,4 @@
-package java_advanced_01.day14;
+package java_advanced_01.day14.exception_solv.prob2;
 // AutoCloseable 인터페이스 구현한 MyResource 리소스를 try-with-resources 블록으로 사용하여 관리함
 public class TryWithResourceEx {
 

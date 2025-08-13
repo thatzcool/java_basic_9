@@ -1,6 +1,4 @@
-package java_advanced_01.day14;
-
-import java.sql.Array;
+package java_advanced_01.day14.exception_solv.prob2;
 
 public class ExceptionEx01 {
     public static void main(String[] args) {

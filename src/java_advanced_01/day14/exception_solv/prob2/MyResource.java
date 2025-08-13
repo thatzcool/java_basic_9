@@ -1,4 +1,4 @@
-package java_advanced_01.day14;
+package java_advanced_01.day14.exception_solv.prob2;
 
 public class MyResource implements AutoCloseable{
 
