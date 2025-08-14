@@ -37,8 +37,12 @@ public class SingleLinkedListEx<T> {
         return null;
     }
 
-    public void addNodeInside(T data, T isData){             // 1,2,3,      addNodeInside(5,1)   1,5,2,3   
+    public void addNodeInside(T data, T isData){             // 1,2,3,      addNodeInside(5,1)   1,5,2,3
 
+    }
+
+    public boolean deleteNode(T isData){
+        return false;
     }
 
     public static void main(String[] args) {
