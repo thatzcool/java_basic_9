@@ -1,0 +1,35 @@
+1.List 인터페이스
+  인덱스를 이용하여 저장순서를 유지한다.
+2.Set 인터페이스
+  저장 순서를 유지 하지 않는다.
+  객체를 중복하여 저장하지 않는다.
+  하나의 null만 저장할 수 있다.
+
+  구슬주머니와 같다. 동일한 구슬을 두 개 넣을 수 없다.
+  저장할때와 나올때의 순서가 다를 수 있기 때문이다.
+
+  HashSet 클래스를 가장 많이 사용한다.
+
+  Set<E> set = new HashSet<>();
+  Set set1 = new HashSet<>();
+
+  동일한 객체(동등객체)는 저장하지 않는다.
+  동등객체를 판단하는 방법을 알야야 한다.
+  hashCode(0) -> equals(x) -> 저장하지 않는다
+  hashCode(x) -> 저장하지 않는다
+
+  Set 컬렉션은 인덱스로 객체로 검색하여 가져오는 메소드가 없다.
+  객체를 한개씩 반복해서 가져와야 하는데
+  for문을 이용하는 방법과 iterator 방법 2가지가 있다
+
+  Set<E> set = new HahsSet<>();
+  for(E e : set) {}
+
+  Set<E> set = new HahsSet<>();
+  Iterator<E> iterator = set.iterator();
+
+  while(iterator.hasNext()){   //hasNext() 주머니에 가져올 객체기 있는지 여부 확인
+         E e = iterator.next();     //next() 객체를 꺼내온다.
+                       .remove();   // 객체 삭제
+  }
+
