@@ -39,7 +39,7 @@ public class TreeSetEx {
         NavigableSet<Integer> rangeSet = score.tailSet(80,true);
         for (Integer i : rangeSet) {
             System.out.println(i + " ");
-        }s
+        }
         //범위검색 (80 <=  score < 90>
         NavigableSet<Integer> subSet = score.subSet(80,true,90,true);
         for (Integer i : subSet) {

@@ -1,0 +1,7 @@
+수정할 수 없는 컬렉션
+요소를 추가, 삭제할 수 없는 컬렉션
+컬렉션 생성 시 저장된 요소를 변경하고 싶지 않을때
+정적메소드 of()로 생성한다.
+List<E> immList = List.of(elements...);
+Set<E> immSet = Set.of(elements...);
+Map<E> immMap = Map.of(K k1,V v1,...);
