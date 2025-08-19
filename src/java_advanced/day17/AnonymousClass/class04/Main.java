@@ -8,6 +8,7 @@ public class Main {
 
          //Calculator 클래스를 생성하여 계산 할 수 있도록 크래스 필드에 값을 전달
          Calculator calculator = new Calculator(number1,number2);
+         //Operate  expression1 =  (number1, number2) -> number1 * number2;
 
          int result = calculator.calculate(new Operate() {
              @Override
