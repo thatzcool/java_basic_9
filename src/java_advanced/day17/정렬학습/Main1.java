@@ -1,4 +1,4 @@
-package java_advanced.day17.test;
+package java_advanced.day17.정렬학습;
 
 import java.util.Arrays;
 import java.util.Collections;
