@@ -125,7 +125,7 @@ public class BoardExample {
                     System.out.println("제목:  " + boardOne.getBTitle());
                     System.out.println("내용:  " + boardOne.getBContent());
                     System.out.println("작성자:  " + boardOne.getBWriter());
-                    System.out.println(String.format(String.format(boardOne.getBDate().toString()));
+                    System.out.println(String.format(String.format());
                     System.out.println("#".repeat(30));
                     readOption(numberInput);
                     break;
@@ -158,7 +158,7 @@ public class BoardExample {
                         run();
                         break;
                 }
-                break;
+
             } else {
                 System.out.println("[1-3]번 중 번호를 선택하세요.");
             }
