@@ -40,9 +40,15 @@ public class BoardExample {
             }
             if (inputNumber.matches(menuNumberRegex)) {
                 switch (inputNumber) {
-                    case "1": create(); break;
-                    case "2": read(); break;
-                    case "3": clear(); break;
+                    case "1":
+                        create();
+                        break;
+                    case "2":
+                        read();
+                        break;
+                    case "3":
+                        clear();
+                        break;
                 }
             } else {
                 System.out.println("[1-4]번 번호를 입력하세요.");
@@ -66,6 +72,7 @@ public class BoardExample {
             }
         }
     }
+
     /*
         create(): 게시물 생성 메서드
         사용자에게 제목, 내용, 작성자 입력 받고 Board 객체로 만들어 map에 입력
@@ -100,7 +107,34 @@ public class BoardExample {
         read(): 게시물 읽기 메소드
      */
     public void read() {
+        System.out.println("/n[게시물 읽기]");
+        Scanner input = new Scanner(System.in);
+        int numberInput = 0;
+        while (true) {
 
+            try {
+                System.out.print("bno: ");
+                numberInput = input.nextInt();
+                if (numberInput < 0 || numberInput > boardManager.getBoardMap().size()) {
+                    throw new IllegalArgumentException("해당 게시물은 존재하지 않습니다.");
+                } else {
+                    Map<String, Board> boardMap = boardManager.getBoardMap();
+                    System.out.println("#".repeat(30));
+                    Board boardOne = boardMap.get(String.valueOf(numberInput));
+                    System.out.println("번호:  " + boardOne.getBno());
+                    System.out.println("제목:  " + boardOne.getBTitle());
+                    System.out.println("내용:  " + boardOne.getBContent());
+                    System.out.println("작성자:  " + boardOne.getBWriter());
+                    System.out.println(String.format(String.format(boardOne.getBDate().toString()));
+                    System.out.println("#".repeat(30));
+                    readOption(numberInput);
+                    break;
+                }
+            } catch (IllegalArgumentException | InputMismatchException e) {
+                System.out.println(e.getMessage());
+            }
+
+        }
     }
 
     /*
@@ -110,13 +144,19 @@ public class BoardExample {
         Scanner input = new Scanner(System.in);
         System.out.println("보조 메뉴: 1.Update | 2. Delete | 3.List");
         System.out.print("메뉴 선택: ");
-        while(true) {
+        while (true) {
             String numberInput = input.nextLine();
-            if(numberInput.matches(readOptionRegex)) {
+            if (numberInput.matches(readOptionRegex)) {
                 switch (numberInput) {
-                    case "1": update(bno);break;
-                    case "2": delete(bno);break;
-                    case "3": run();break;
+                    case "1":
+                        update(bno);
+                        break;
+                    case "2":
+                        delete(bno);
+                        break;
+                    case "3":
+                        run();
+                        break;
                 }
                 break;
             } else {
@@ -155,7 +195,7 @@ public class BoardExample {
         System.out.println("\n[게시물 목록]");
         System.out.println("-".repeat(60));
         //System.out.println("no\twriter\tdate\ttitle");
-        System.out.printf("%-4s %-20s %-20s %-20s\n","no", "writer", "date", "title");
+        System.out.printf("%-4s %-20s %-20s %-20s\n", "no", "writer", "date", "title");
 
 
         List<Entry<String, Board>> entryList = new LinkedList<>(boardMap.entrySet());
