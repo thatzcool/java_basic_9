@@ -1,7 +1,8 @@
 package Board_Proj_v1;
 
-import java.util.Map;
-import java.util.Scanner;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.logging.SimpleFormatter;
 
 //사용자가 현재 게시물목록 읽을 수 있다.
 //사용자가 메뉴를 선택하여 글을 생성, 생성한 글을 읽을 수도 있고, 삭제할 수도 있다.
@@ -11,27 +12,44 @@ public class BoardExample {
     private static final String menuNumberRegex = "[1-4]";
     private static final String checkNumber = "[1-2]";
     private static final String readOptionRegex = "[1-3]";
+    private static int bno = 1;  //공용변수
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+
     BoardManger boardManger;
 
-   public BoardExample(){}
-   public BoardExample(BoardManger boardManger){
-          this.boardManger = boardManger;
+    //Board 매니저가 게시판을 관리한다.
+    public BoardExample() {
+    }
+
+    public BoardExample(BoardManger boardManger) {
+        this.boardManger = boardManger;
     }
 
     // 현재 게시판의 전체 게시물 목록을 출력 기능
     public void list() {
-        String boardList = """
-                       [게시물 목록]
-                       --------------------------------------------------------
-                       no      writer      date      title 
-                       --------------------------------------------------------
-                       """;
-        Map<String,Board> board= null;
+//        String boardList = """
+//                       [게시물 목록]
+//                       --------------------------------------------------------
+//                       no      writer      date      title
+//                       --------------------------------------------------------
+//                       """;
+        Map<String, Board> boardMap = boardManger.getBoardMap();  //게시판은 매니저가 담당하고 있으므로, 매니저 받아온다.
+        //   System.out.println(boardList);
+        System.out.println("\n[게시물 목록]");
+        System.out.println("-".repeat(60));
+        System.out.printf("%-4s %-20s %-20s %-20s\n", "no", "writer", "date", "title");
 
+        //Manger에게 전체 게시물목록을 요청
+        List<Map.Entry<String,Board>> entryList = new LinkedList<>(boardMap.entrySet());
+        Collections.reverse(entryList);
 
+        entryList.forEach(entry -> {
+            Board value = entry.getValue();
+            System.out.printf("\"%-4s %-20s %-20s %-20s\n", value.getBno(),value.getBWriter(),dateFormat.format(value.getBDate()),value.getBTitle());
+        });
+        System.out.println("-".repeat(60));
 
-
-        System.out.println(boardList);
         mainMenu();
     }
 
@@ -60,7 +78,8 @@ public class BoardExample {
             if (input.matches(menuNumberRegex)) {
                 switch (input) {
                     case "1":
-                        System.out.println("*** create() 메소드 실행됨");
+                        //System.out.println("*** create() 메소드 실행됨");
+                        create();
                         break;
                     case "2":
                         System.out.println("*** read() 메소드 실행됨");
@@ -72,11 +91,60 @@ public class BoardExample {
             } else {
                 System.out.println("[1-4]번 번호를 입력하세요");
             }
+       }
 
+    }
+    //checkMenu() : 보조메뉴 확인, 선택 메서드
+    public boolean checkMenu(){
+        System.out.println("보조 메뉴 : 1. Ok  | 2. Cancel");
+        System.out.println("메뉴 선택: ");
+        while(true) {
+            String input = scanner.nextLine();
+            if (input.matches(checkNumber)) {
+                return input.equals("1");
+            } else {
+                System.out.println("[1 or 2]번을 입력하세요");
+            }
+            
+        }
+    }
+
+
+
+
+    //새글 작성 저장기능 => Map컬렉션에
+    public void create(){
+        System.out.println("\n[새 게시물 입력]");
+
+        System.out.print("제목: ");
+        String title = scanner.nextLine();
+
+        System.out.print("내용: ");
+        String content = scanner.nextLine();
+
+        System.out.print("작성자: ");
+        String writer = scanner.nextLine();
+
+
+        //1번 입력
+        if(checkMenu()) {
+            //BoardBuilder 를 이용하여 새글을 생성한다.
+            Board board = Board.builder()
+                    .bno(bno)
+                    .bWriter(writer)
+                    .bTitle(title)
+                    .bContent(content)
+                    .bDate(new Date())
+                    .build();
+            Map<String, Board>  boardMap = boardManger.getBoardMap();
+            boardMap.put(String.valueOf(bno),board);
+            boardManger.setBoardMap(boardMap);
+            bno++;
 
         }
 
 
-    }
+
+    };
 
 }
