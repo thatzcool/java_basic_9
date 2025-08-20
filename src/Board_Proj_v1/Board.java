@@ -18,5 +18,4 @@ public class Board {
     private String bWriter;  //글쓴이
     private Date bDate;    //글쓴 날짜
 
-
 }
