@@ -1,4 +1,4 @@
-package Board_basic_v2;
+package Board_proj.Board_basic_v1;
 
 public class BoardMain {
     public static void main(String[] args) {
@@ -7,10 +7,8 @@ public class BoardMain {
 
          */
         BoardManager boardManager = new BoardManager();
-        BoardDAO board = new BoardDAO(boardManager);
+        BoardExample board = new BoardExample(boardManager);
         board.run();
-
-
     }
 
 }
