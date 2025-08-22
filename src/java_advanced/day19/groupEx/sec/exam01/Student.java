@@ -1,4 +1,4 @@
-package java_advanced.day19.groupEx.sec12.exam02;
+package java_advanced.day19.groupEx.sec.exam01;
 
 public class Student {
 	private String name;

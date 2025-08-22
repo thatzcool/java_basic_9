@@ -1,9 +1,7 @@
-package java_advanced.day19.groupEx.sec12.exam03;
+package java_advanced.day19.groupEx.sec.exam03;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 public class CollectExample {
 	public static void main(String[] args) {
