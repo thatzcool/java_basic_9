@@ -33,27 +33,31 @@ class OS {
 
 public class Main {
     public static void main(String[] args) {
-        Person person = new Person("홍길동");
-      //  person.getPhone().getOs().printOS();   //null.getOS()
+        Person person = new Person("Alice");
+        //  person.getPhone().getOs().printOS();   //null.getOS()
 
-      Person p = new Person("홍미자");
-      Phone ph = p.getPhone();
-     //Null Object Pattern
-      if(ph != null) {
-          OS os = ph.getOs();
-          if(os == null){
-             String osName = System.getProperty("os.name").toLowerCase();
-          }
-      }
-    }
+        Person p = new Person("David");
+        Phone ph = p.getPhone();
+        //Null Object Pattern
+        if (ph != null) {
+            OS os = ph.getOs();
+            if (os == null) {
+                String osName = System.getProperty("os.name").toLowerCase();
+            }
+        }
+
 
     //Optional 클래스 NPE 처리 => Null 을 처리하기 위한 랩퍼(Wrapper)클래스
 
     Person p1 = new Person("서유미");
 
-   // Optional.ofNullable(p1).map(Person::getPhone).map(Phone::getOS).map(OS::printOS);
+    Optional.ofNullable(p1).
 
+    map(Person::getPhone).
 
+    map(Phone::getOs). map(OS::printOS);
+
+}
 
 
 
