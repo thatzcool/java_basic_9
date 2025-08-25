@@ -11,7 +11,9 @@ public class Prob4 {
     public static void main(String[] args) throws IOException {
         OutputStream os = new FileOutputStream("C:/Temp/byte_output.txt");
         String text = "ABCDEF";
-        os.write(text.getBytes()); // 문자열 → 바이트 변환
+        os.write(text.getBytes());
+        // 문자열 → 바이트 변환
+        os.flush();
         os.close();
         System.out.println("저장 완료!");
     }

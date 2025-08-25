@@ -8,7 +8,7 @@ import java.io.IOException;
 public class Prob7 {
 
     public static void main(String[] args) throws IOException {
-        File file = new File("C:/Temp/copy.jpg");
+        File file = new File("copy.jpg");
         System.out.println("파일 크기: " + file.length() + " bytes");
     }
 }

@@ -18,6 +18,7 @@ public class Prob9 {
             bw.newLine(); // 줄바꿈
         }
 
+        bw.flush();
         bw.close();
         br.close();
         System.out.println("파일 저장 완료!");

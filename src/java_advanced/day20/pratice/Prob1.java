@@ -10,6 +10,7 @@ public class Prob1 {
     public static void main(String[] args) throws IOException {
         FileWriter fw = new FileWriter("C:/Temp/hello.txt");
         fw.write("Hello Java!");
+        fw.flush();
         fw.close();
         System.out.println("저장 완료!");
     }

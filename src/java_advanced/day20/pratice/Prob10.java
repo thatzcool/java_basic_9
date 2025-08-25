@@ -8,7 +8,7 @@ public class Prob10 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        OutputStream os = new FileOutputStream("keyboard.txt");
+        OutputStream os = new FileOutputStream("C:/Temp/keyboard.txt");
 
         System.out.println("문장을 입력하세요 (exit 입력 시 종료):");
         String line;
@@ -16,7 +16,7 @@ public class Prob10 {
             os.write(line.getBytes());
             os.write('\n');
         }
-
+        os.flush();
         os.close();
         br.close();
         System.out.println("저장 완료!");

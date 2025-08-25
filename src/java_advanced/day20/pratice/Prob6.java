@@ -16,6 +16,7 @@ public class Prob6 {
         }
 
         is.close();
+        os.flush();
         os.close();
         System.out.println("이미지 복사 완료!");
     }
