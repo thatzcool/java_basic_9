@@ -22,13 +22,13 @@ public class ParseJsonEx {
         System.out.println("아이디" + root.getString("name"));
         JSONObject obj = root.getJSONObject("tel");
         System.out.println("home-tel" + obj.getString("home"));
-        System.out.println("home-tel" + obj.getString("mobile"));
+        System.out.println("mobile-tel" + obj.getString("mobile"));
 
-        JSONArray skill = obj.getJSONArray("skill");
-        for (int i = 0; i < skill.length(); i++) {
-            System.out.println(skill.getString(i) + "");
+        JSONArray skill = root.getJSONArray("skill");
+        System.out.print("skill: ");
+        for(int i=0; i<skill.length(); i++) {
+            System.out.print(skill.get(i) + ", ");
         }
-
 
     } catch (Exception e) {
         System.out.println(e.getMessage());
