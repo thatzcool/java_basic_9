@@ -27,7 +27,7 @@ class User implements Serializable {
 @AllArgsConstructor
 @NoArgsConstructor
 class Product implements Serializable {
-    private static final long serialVersionUID = 101L;
+    private static final long serialVersionUID = 100L;
     private String pname;
     private int price;
 }
