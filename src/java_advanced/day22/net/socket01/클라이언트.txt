@@ -1,0 +1,4 @@
+클라이언트가 서버에서 연결요청을 하려면 Socket객체를 생상하고 생성자 매개값에 서버 IP,Port(필수값)
+제공한다.
+
+   Socket socket = new Socket("IP",50001);
