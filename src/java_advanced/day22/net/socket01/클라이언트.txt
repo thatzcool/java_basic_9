@@ -2,3 +2,53 @@
 제공한다.
 
    Socket socket = new Socket("IP",50001);
+
+
+클라이언트가 연결요청(Connet()) 을 하고 서버가 연결 수락(accept()) 했다면
+양쪽의 socket객체로부터 각각 입력스트림과 출력스트림을 얻을 수 있다.
+
+상대방에게 데이터를 보낼때에는 보낼데이터를 byte[]배열로 생성하고
+매개값으로 해서 OutputStream의 write()메소드를 호출해서 UTF-8 인코딩한 바이트 배열로 전송한다.
+
+
+== 쓰기 로직 ==
+String data = "보낼 데이터";
+btye[] bytes = data.getBytes("UTF-8");
+OutputStream os = socket.getOuptStream();
+os.write(bytes);
+os.flush();
+
+
+String data = "보낼 데이터";
+DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
+os.writeUTF(data);
+os.flush();
+
+== 읽기 로직 (데이터를 받을때) ==
+받은 데이터를 저장할 byte[] 배열을 하나 생성하고
+이걸 매개값으로 해서 InputStream의 read()메소드를 호출해서 읽어야지
+read()메소드는 읽은 데이터를 byte[]배열에 저장하고 읽은 바이트 수를 리턴한다.
+조건) UTF-8 인코딩
+
+byte[] bytes = new byte[1024];
+InputStream is = socket.getInputStream();
+int number = is.read(bytes);
+String data = new String(bytes,0 , number, "UTF-8");
+
+
+//단, DataOutputStream 으로 문자열로 보낼때만 DataInputStream으로 읽을 수 있다.
+DataInputStream dis = new DataInputStream(socket.getInputStream());
+String data = dis.readUTF();
+
+
+
+
+
+
+
+
+
+
+
+
+
