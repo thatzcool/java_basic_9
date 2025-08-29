@@ -1,4 +1,4 @@
-package java_advanced.day24.nio_02.exam02_data_read_write;
+package java_advanced.day24.nio.nio_02.exam02_data_read_write;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

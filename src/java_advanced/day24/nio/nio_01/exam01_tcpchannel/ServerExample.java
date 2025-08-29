@@ -1,4 +1,4 @@
-package java_advanced.day24.nio_01.exam01_tcpchannel;
+package java_advanced.day24.nio.nio_01.exam01_tcpchannel;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;

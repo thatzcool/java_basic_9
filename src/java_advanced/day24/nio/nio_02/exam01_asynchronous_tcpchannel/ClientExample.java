@@ -1,4 +1,4 @@
-package java_advanced.day24.nio_02.exam01_asynchronous_tcpchannel;
+package java_advanced.day24.nio.nio_02.exam01_asynchronous_tcpchannel;
 
 import java.net.InetSocketAddress;
 import java.nio.channels.AsynchronousSocketChannel;

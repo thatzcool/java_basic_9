@@ -1,8 +1,10 @@
-package java_advanced.day24.nio_01.exam01_tcpchannel;
+package java_advanced.day24.nio.nio_01.exam02_data_read_write;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
+import java.nio.ByteBuffer;
 import java.nio.channels.SocketChannel;
+import java.nio.charset.Charset;
 
 public class ClientExample {
 	public static void main(String[] args) {
@@ -17,6 +19,21 @@ public class ClientExample {
 			System.out.println("[연결 요청]");
 			socketChannel.connect(new InetSocketAddress("localhost", 50001));
 			System.out.println("[연결 성공]");
+
+			ByteBuffer byteBuffer = null;
+			Charset charset = Charset.forName("UTF-8");
+
+			// 서버로 데이터 보내기
+			byteBuffer = charset.encode("Hello Server");
+			socketChannel.write(byteBuffer);
+			System.out.println("데이터 보냄");
+
+			// 서버가 보낸 데이터 받기
+			byteBuffer = ByteBuffer.allocate(100);
+			int byteNum = socketChannel.read(byteBuffer);
+			byteBuffer.flip();
+			String message = charset.decode(byteBuffer).toString();
+			System.out.println("데이터 받기: " + message);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -24,7 +41,9 @@ public class ClientExample {
 			try {
 				System.out.println("[연결 끊기]");
 				socketChannel.close();
-			} catch (IOException e1) {}
+			} catch (IOException e1) {
+			}
 		}
 	}
 }
+
