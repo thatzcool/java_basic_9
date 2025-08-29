@@ -1,4 +1,4 @@
-package Board_proj.Board_basic_v2.common;
+package board_proj.Board_basic_v2.common;
 
 public enum ErrorCode {
     INVALID_MENU_OPTION("잘못된 메뉴 번호입니다. [1-4]번 다시 입력하세요"),

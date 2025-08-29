@@ -1,4 +1,4 @@
-package BookMarket;
+package bookMarket;
 
 import java.util.Scanner;
 

@@ -1,8 +1,8 @@
-package Board_proj.Board_basic_v2;
+package board_proj.Board_basic_v2;
 
-import Board_proj.Board_basic_v2.common.BoardText;
-import Board_proj.Board_basic_v2.common.ValidCheck;
-import Board_proj.Board_basic_v2.exception.BoardException;
+import board_proj.Board_basic_v2.common.BoardText;
+import board_proj.Board_basic_v2.common.ValidCheck;
+import board_proj.Board_basic_v2.exception.BoardException;
 
 import java.text.SimpleDateFormat;
 import java.util.*;

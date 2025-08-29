@@ -16,12 +16,14 @@ class Calculator {
     }
 
     public void setMemory2(int memory) {
-        synchronized(this) {
+        synchronized (this) {
             this.memory = memory;
             try {
                 Thread.sleep(2000);
-            } catch(InterruptedException e) {}
+            } catch (InterruptedException e) {
+            }
             System.out.println(Thread.currentThread().getName() + ": " + this.memory);
+
         }
     }
 }

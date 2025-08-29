@@ -1,4 +1,4 @@
-package BookMarket;
+package bookMarket;
 
 public class Admin extends Person {
 	private String id = "Admin";

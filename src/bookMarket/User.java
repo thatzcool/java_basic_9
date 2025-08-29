@@ -1,4 +1,4 @@
-package BookMarket;
+package bookMarket;
 
 public class User extends Person {
 	public User(String name, int phone) {

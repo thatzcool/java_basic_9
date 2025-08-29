@@ -1,4 +1,4 @@
-package Board_proj.Board_basic_v2;
+package board_proj.Board_basic_v1;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

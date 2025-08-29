@@ -1,4 +1,4 @@
-package Board_proj.Board_basic_v2;
+package board_proj.Board_basic_v2;
 
 public class BoardMain {
     public static void main(String[] args) {

@@ -1,6 +1,6 @@
-package Board_proj.Board_basic_v2.exception;
+package board_proj.Board_basic_v2.exception;
 
-import Board_proj.Board_basic_v2.common.ErrorCode;
+import board_proj.Board_basic_v2.common.ErrorCode;
 
 /*
     사용자 정의 Board 예외

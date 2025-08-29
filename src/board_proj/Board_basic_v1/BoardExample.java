@@ -1,4 +1,4 @@
-package Board_proj.Board_basic_v1;
+package board_proj.Board_basic_v1;
 
 import java.text.SimpleDateFormat;
 import java.util.*;

@@ -1,4 +1,4 @@
-package BookMarket;
+package bookMarket;
 
 public class Person {
 	private String name;
