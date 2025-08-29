@@ -1,6 +1,8 @@
 package java_advanced.day24.jsonbased_chatting;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Collection;
@@ -92,7 +94,27 @@ public class ChatServer {
             e.printStackTrace();
         }
     }
+    //메소드: 메인
+    public static void main(String[] args) {
+        try {
+            ChatServer chatServer = new ChatServer();
+            chatServer.start();
 
+            System.out.println("----------------------------------------------------");
+            System.out.println("서버를 종료하려면 q를 입력하고 Enter.");
+            System.out.println("----------------------------------------------------");
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            while(true) {
+                String key = br.readLine();
+                if(key.equals("q")) 	break;
+            }
+            br.close();
+            chatServer.stop();
+        } catch(IOException e) {
+            System.out.println("[서버] " + e.getMessage());
+        }
+    }
 }
 
 
