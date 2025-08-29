@@ -12,12 +12,12 @@ import java.net.Socket;
 public class SocketClient {
 
     //필요 객체 (필드)
-    ChatServer chatServer;  //ChatServer()의 메소드를 호출을 위해
-    Socket socket;          //연결을 끊을때 필요
-    DataInputStream dis;    //문자열을 읽을때
-    DataOutputStream dos;  //문자열을 보낼때
-    public String clientIp;     //클라이언트 Ip
-    String chatName;      //닉네임(대화명)
+    ChatServer chatServer;
+    Socket socket;
+    DataInputStream dis;
+    DataOutputStream dos;
+    String clientIp;
+    String chatName;//닉네임(대화명)
 
     public SocketClient(ChatServer chatServer, Socket socket) {
         try {
@@ -28,8 +28,7 @@ public class SocketClient {
             InetSocketAddress isa = (InetSocketAddress) socket.getRemoteSocketAddress();
             this.clientIp = isa.getHostName();
             receive();
-        } catch (IOException e) {
-           e.printStackTrace();
+        } catch(IOException e) {
         }
     }
 
@@ -40,59 +39,47 @@ public class SocketClient {
     //          클라이언트가 채팅을 종료할 경우 dis.UTF()에서 IOException발생하므로 예외처리를 하여
     // chatRoom에 저장되어 있는 SocketClient를 제거한다.
 
-    public void receive(){
+    public void receive() {
+        chatServer.threadPool.execute(() -> {
+            try {
+                while(true) {
+                    String receiveJson = dis.readUTF();
 
-        chatServer.threadPool.execute(
-                () -> {
+                    JSONObject jsonObject = new JSONObject(receiveJson);
+                    String command = jsonObject.getString("command");
 
-                    try {
-                        while (true) {
-
-                            String receiveJson = dis.readUTF();
-
-                            JSONObject obj = new JSONObject(receiveJson);
-                            String command = obj.getString("command");
-
-                            switch (command) {
-                                case "incomming" :
-                                    this.chatName = obj.getString("data");
-                                    chatServer.sendToAll(this,"입장하셨습니다.");
-                                    chatServer.addSocketClient(this);
-                                    break;
-                                case "message" :
-                                    String message = obj.getString("data");
-                                    chatServer.sendToAll(this,message);
-                                    break;
-                            }
-
-                        }
-                    } catch (IOException e) {
-                       chatServer.sendToAll(this,"퇴장하셨습니다.");
-                       chatServer.removetSocketClient(this);
+                    switch(command) {
+                        case "incoming":
+                            this.chatName = jsonObject.getString("data");
+                            chatServer.sendToAll(this, "들어오셨습니다.");
+                            chatServer.addSocketClient(this);
+                            break;
+                        case "message":
+                            String message = jsonObject.getString("data");
+                            chatServer.sendToAll(this, message);
+                            break;
                     }
-
-
                 }
-
-        );
+            } catch(IOException e) {
+                chatServer.sendToAll(this, "나가셨습니다.");
+                chatServer.removeSocketClient(this);
+            }
+        });
     }
 
     //메소드 : JSON 보내기  연결된 클라이언트로 JSON메세지를 보내는 기능
-    public void send(String json){
+    public void send(String json) {
         try {
             dos.writeUTF(json);
             dos.flush();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch(IOException e) {
         }
     }
-// 메소드 연결 종료
-    public void close(){
+    // 메소드 연결 종료
+    public void close() {
         try {
             socket.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        } catch(Exception e) {}
     }
 
 }

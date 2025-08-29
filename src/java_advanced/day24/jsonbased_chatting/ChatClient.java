@@ -1,8 +1,6 @@
 package java_advanced.day24.jsonbased_chatting;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.Socket;
 import java.util.Scanner;
 
@@ -64,9 +62,9 @@ public class ChatClient {
             ChatClient chatClient = new ChatClient();
             chatClient.connect();
 
-            Scanner scanner = new Scanner(System.in);
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             System.out.println("대화명 입력: ");
-            chatClient.chatName = scanner.nextLine();
+            chatClient.chatName =br.readLine();
 
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("command", "incoming");
@@ -81,7 +79,7 @@ public class ChatClient {
             System.out.println("채팅를 종료하려면 q를 입력하고 Enter");
             System.out.println("--------------------------------------------------");
             while(true) {
-                String message = scanner.nextLine();
+                String message = br.readLine();
                 if(message.toLowerCase().equals("q")) {
                     break;
                 } else {
@@ -92,7 +90,7 @@ public class ChatClient {
                     chatClient.send(json);
                 }
             }
-            scanner.close();
+            br.close();
             chatClient.unconnect();
         } catch(IOException e) {
             System.out.println("[클라이언트] 서버 연결 안됨");

@@ -27,72 +27,61 @@ public class ChatServer {
     //50001번 Port에 바인딩하는 ServerSocket을 생성하고 작업스레드가 처리할 Runnable을 람다식 ()->{....} 제공
     public void start() throws IOException {
         serverSocket = new ServerSocket(50001);
-        System.out.println("Server started");
+        System.out.println( "[서버] 시작됨");
 
-        Thread thread = new Thread(
-                () -> {
-                    try {
-                        while (true) {    //람다식이 하는일을 개발자가 아래와 같이 2가지를 지정함
-                            Socket socket = serverSocket.accept();   //1. accpet()로 연결을 수락
-                            SocketClient client = new SocketClient(this,socket);  //2. 통신용 SocketClient를 반복해서 생성한다.
-                        }
-
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    } catch (Exception e) {
-
-                    }
+        Thread thread = new Thread(() -> {
+            try {
+                while(true) {
+                    Socket socket = serverSocket.accept();
+                    SocketClient sc = new SocketClient(this, socket);
                 }
-        );
+            } catch(IOException e) {
+            }
+        });
         thread.start();
     }
 
     // 메소드 : 클라이언트 연결시 SocketClient 생성 하고 Map에 추가하는 기능
     public void addSocketClient(SocketClient socketClient) {
-        String key = socketClient.chatName + "@" + socketClient.clientIp; //클라이언트 정보를 이용하여 고유key생성
+        String key = socketClient.chatName + "@" + socketClient.clientIp;
         chatRoom.put(key, socketClient);
-        System.out.println("입장 > :" + key);
+        System.out.println("입장: " + key);
         System.out.println("현재 채팅자 수: " + chatRoom.size() + "\n");
     }
 
 
     //메소드 : 클라이언트 연결 종료 시 SocketClient 제거
-    public void removetSocketClient(SocketClient socketClient) {
+    public void removeSocketClient(SocketClient socketClient) {
         String key = socketClient.chatName + "@" + socketClient.clientIp;
         chatRoom.remove(key);
-        System.out.println("퇴장> :" + key);
+        System.out.println("나감: " + key);
         System.out.println("현재 채팅자 수: " + chatRoom.size() + "\n");
     }
 
     // 메시지 브로드캐스트 기능 : JSON메시지를 생성하여 채팅방에 있는 모든
     //클라이언트에게 보내는 기능을 구현
-    public void sendToAll(SocketClient sender,String message) {
+    public void sendToAll(SocketClient sender, String message) {
         JSONObject root = new JSONObject();
         root.put("clientIp", sender.clientIp);
         root.put("chatName", sender.chatName);
         root.put("message", message);
-        String json = root.toString();        // { "clientIp": "xxx.xxx.xx.11",
-                                              //   "chatName": "yumi",
-                                              //   "message" : "hello,오랫만이야" }
-        //Collections<SocketClient> 얻은 후 모든 SocketClient로 하여금
-        //send()로 JSON메시지를 보내게 한다.
-        Collection<SocketClient> clients = chatRoom.values();
-        for(SocketClient client : clients) {
-            if(client == sender) continue;
-            client.send(json);
+        String json = root.toString();
+
+        Collection<SocketClient> socketClients = chatRoom.values();
+        for(SocketClient sc : socketClients) {
+            if(sc == sender) continue;
+            sc.send(json);
         }
     }
 
     //서버종료 : stop()
-    public void stop(){
+    public void stop() {
         try {
             serverSocket.close();
-            threadPool.shutdown();
-            chatRoom.clear();
-            System.out.println("서버 종료");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            threadPool.shutdownNow();
+            chatRoom.values().stream().forEach(sc -> sc.close());
+            System.out.println( "[서버] 종료됨 ");
+        } catch (IOException e1) {}
     }
     //메소드: 메인
     public static void main(String[] args) {
